@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greet User Example</title>
+    <script>
+        function greetUser() {
+            // Prompt the user for their name
+            var name = window.prompt("What is your name?");
+            
+            // Check if the user entered a name
+            if (name) {
+                // Alert the user with a greeting
+                window.alert("Hello, " + name + "!");
+            } else {
+                // Handle case where no name was entered
+                window.alert("Hello, stranger!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Click the button below to be greeted.</p>
+    <button onclick="greetUser()">Greet Me</button>
+</body>
+</html>
