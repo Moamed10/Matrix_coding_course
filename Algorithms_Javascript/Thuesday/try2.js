@@ -7,3 +7,14 @@ for(let x = 200; x <= 2700; x++) {
 }
 
 console.log(sum);
+
+
+//  let sum = 0;
+// second way
+for (let x = 200; x <= 2700; x++) {
+    if ((x % 3 === 0) !== (x % 5 === 0)) {
+        sum += x;
+    }
+}
+
+console.log(sum);
