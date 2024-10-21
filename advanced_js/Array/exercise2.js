@@ -19,9 +19,11 @@ let john = { name: "John", age: 25 }
 let pete = { name: "Pete", age: 30 }
 let mary = { name: "Mary", age: 29 }
 
-let arr = [ john, pete, mary ]
+let arr = [john, pete, mary];
 
-age1 = arr.map(e=>  e.age )
-total = age1.reduce((a,b) => a+b)
+function getAverageAge(users) {
+    let totalAge = users.reduce((sum, user) => sum + user.age,);
+    return totalAge / users.length;
+}
 
-console.log(total/2)
+console.log(getAverageAge(arr));  
