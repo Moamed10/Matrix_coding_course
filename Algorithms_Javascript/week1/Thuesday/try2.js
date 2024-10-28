@@ -6,6 +6,7 @@ for(let x = 200; x <= 2700; x++) {
     } 
 }
 
+
 console.log(sum);
 
 

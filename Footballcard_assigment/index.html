@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather in Amsterdam</title>
+</head>
+<body>
+    <h1>Weather Data for Amsterdam</h1>
+    <div id="weather"></div>
+
+    <script>
+        let http = new XMLHttpRequest();
+        let apiKey = 'a596ecd1a315caabde436c33d6ec31d2';
+        let lat = 52.3676; // Latitude for Amsterdam
+        let lon = 4.9041;  // Longitude for Amsterdam
+        let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}`;
+
+        http.open('GET', apiUrl, true);
+        http.send();
+
+        http.onreadystatechange = function() {
+            if (http.readyState === 4) {
+                if (http.status === 200) {
+                    // Parse the JSON response
+                    let response = JSON.parse(http.response);
+                    let temperature = response.current.temp; // Current temperature
+                    let description = response.current.weather[0].description; // Weather description
+                    
+                    // Display the weather
+                    document.getElementById('weather').innerHTML = `Temperature: ${temperature}°C <br> Weather: ${description}`;
+                } else {
+                    // Handle errors
+                    document.getElementById('weather').innerHTML = `Error: ${http.status}`;
+                    console.error('Error fetching the weather data:', http.status, http.statusText);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
