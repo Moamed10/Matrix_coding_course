@@ -1,16 +1,14 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
-console.log(app)
+// // Set EJS as the view engine
+// app.set('view engine', 'ejs');
 
-app.get("/test/:mo",(req,res)=>{
-
-    res.render('web.ejs',{
-        name :req.params
-    })
-})
-
+// Route handler
+app.get('/sayhi/:name', (req, res) => {
+    res.render('hey.ejs', { name: req.params.name }); // Pass 'name' to the template
+});
 
 app.listen(5000, () => {
-
-})
+    console.log('Server is running on http://localhost:5000');
+});
