@@ -1,12 +1,21 @@
 const express = require('express');
 const app = express();
 
-// // Set EJS as the view engine
-// app.set('view engine', 'ejs');
+const route = require("./config/route")
 
-// Route handler
+app.use(route)
 app.get('/sayhi/:name', (req, res) => {
-    res.render('hey.ejs', { name: req.params.name }); // Pass 'name' to the template
+    let number = ''
+    for(let a = 0 ; a <= 100 ; ++a){
+        number += a  + '-'
+        
+    }
+
+    res.render('hey.ejs', { 
+        name: req.params.name ,
+        num :  number   
+
+    }); 
 });
 
 app.listen(5000, () => {

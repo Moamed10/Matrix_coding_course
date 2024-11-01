@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Posts</title>
+</head>
+<body>
+    <h1>Timeline</h1>
+    <% data.forEach((user) => { %>
+        <p><strong><%= user.name %></strong> - <%= user.createdAt %></p>
+        <p><%= user.message %></p>
+        <br> 
+        <form action="/user/<%=user.name%>"  method="post">
+                 <button>Read more</button>   
+                 <input type="text" name="uniek">
+        </form>
+
+    <% }) %>
+
+
+
+
+
+
+
+
+</body>
+</html>
