@@ -4,6 +4,5 @@ const router = express.Router();
 const myfunction = require("../controller/myfun");
 
 router.get('/users', myfunction.displayPosts);
-router.post('/user/:name', myfunction.getPostByName);
-
+router.post('/user/search', myfunction.getPostByName); 
 module.exports = router;

@@ -8,8 +8,17 @@ const route = require('./config/routes')
 
 
 // app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+// console.log(__dirname +)
+// app.use(express.static(path.join(__dirname + '/pupblic/style.css')))
+
+app.use(express.urlencoded({ extended: true }));
 app.use(route)
 
 
 app.listen(port, console.log(`app is on ${port}`))
+
+
+
+
+
+// extend false and true

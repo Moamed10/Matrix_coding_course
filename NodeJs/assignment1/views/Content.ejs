@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Post</title>
 </head>
 <body>
-    <h1><%=use.name%></h1>
-   
+    <% if (use) { %>
+  
+        <p style="color: #FC7D7D;"><strong><%= use.name %></strong> - <%= use.createdAt %></p>
+        <p><%= use.message %></p>
+    <% } else { %>
+  
+        <p>No posts found for this user.</p>
+    <% } %>
 </body>
 </html>
