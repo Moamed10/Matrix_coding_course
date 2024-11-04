@@ -33,13 +33,14 @@ const user_data = [
 
 
 
+
 user_data.sort((a, b) => {
+    // Convert createdAt strings to Date objects
     const dateA = new Date(a.createdAt.split('-').reverse().join('-'));
-    const dateB = new Date (b.createdAt.split('-').reverse().join('-'));
-    return dateB - dateA; 
+    const dateB = new Date(b.createdAt.split('-').reverse().join('-'));
+    return dateA - dateB; // Sort in ascending order
 });
-module.exports = user_data
-
-// const now = new Date 
-
-// console.log(now)
+user_data.forEach((user) => {
+    console.log(`Created At: ${user.createdAt}`);
+ 
+});
