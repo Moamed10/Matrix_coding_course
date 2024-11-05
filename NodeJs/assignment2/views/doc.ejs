@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Posts</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Timeline</h1>
+    <hr>
+
+    <!-- Form for adding new post -->
+    <form action="/addPost" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Post</button>
+    </form>
+    <hr>
+
+    <!-- Check if there are posts -->
+    <% if (data.length > 0) { %>
+        <% data.forEach((user) => { %>
+            <div class="post">
+                <p style="color: #FC7D7D;"><strong><%= user.name %></strong> - <%= user.createdAt.toLocaleString() %></p>
+                <p><%= user.message %></p>
+                <hr>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No posts available yet. Be the first to share!</p>
+    <% } %>
+</body>
+</html>
