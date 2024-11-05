@@ -9,18 +9,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../model/user"); 
 
-router.post("/users", async (req, res) => {
-    const newUser = new User(); 
-    const name = req.body.name;
-    const message = req.body.message;
-
-    newUser.name = name;
-    newUser.message = message;
-    newUser.createdAt = new Date(); 
-    await newUser.save();
-    res.redirect("/users"); 
-    
-});
+router.post('/users',myfunction.newuser)
 router.get('/users',myfunction.displayPosts)
-router.get("/post/:user.id",myfunction.displaysingelPosts)
+router.get("/post/:userId", myfunction.displaysingelPosts);
 module.exports = router;

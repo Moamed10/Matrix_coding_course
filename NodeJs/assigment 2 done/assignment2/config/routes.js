@@ -18,8 +18,9 @@ router.post("/users", async (req, res) => {
     newUser.message = message;
     newUser.createdAt = new Date(); 
     await newUser.save();
-    res.send(newUser); 
+    res.redirect("/users"); 
     
 });
 router.get('/users',myfunction.displayPosts)
+router.get("/post/:user.id",myfunction.displaysingelPosts)
 module.exports = router;

@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Posts</title>
-    <link href="style.css" rel="stylesheet" type="text/css"> 
 
 </head>
-<body style="border: 5cap;">
-    <h1><%= data.name </h1>
-</body>
+<body >
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;"> 
+        <p><strong>Name:</strong> <%= data.name %></p>
+        <p><strong>Date:</strong> <%= data.createdAt.toLocaleString() %></p>
+        <p><strong>Message:</strong> <%= data.message %></p>
+
+    </div>
+
+
+
+
+    </body>
 </html>

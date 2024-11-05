@@ -1,9 +1,6 @@
-// const user = require('../model/data');
-const { name } = require('ejs');
-const { param } = require('../config/routes');
+
 const User = require('../model/user');
-
-
+// creating new user and store it
 const newuser = async(req,res)=>{
     const newUser = new User(); 
     const name = req.body.name;
@@ -11,22 +8,20 @@ const newuser = async(req,res)=>{
     
     newUser.name = name;
     newUser.message = message;
-     newUser.createdAt = new Date(); 
+    //  newUser.createdAt = time(); 
      await newUser.save();
-    res.send("created sucessfully"); 
+    res.redirect("/users"); 
 }
-    
-   
-        
+// display posts
 const displayPosts = async (req, res) => {
     const users = await User.find().sort({ createdAt: -1 });
     res.render('doc', { data: users });
 };
-
+// display singel poost by click the readmore
 const displaysingelPosts = async (req, res) => {
-    const id = req.param.id
-    const users =User.findById(id);
-    res.render('post', { data: users });
+    const id = req.params.userId; 
+    const user = await User.findById(id);
+    res.render('post', { data: user });
 };
 
-module.exports = { displayPosts , displaysingelPosts };
+module.exports = { displayPosts , displaysingelPosts,newuser };

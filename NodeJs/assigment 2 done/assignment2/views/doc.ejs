@@ -14,18 +14,19 @@
         <input type="text" name="name" id="name" placeholder="Enter your name" required>
     
         <label for="message">Message:</label>
-        <textarea name="message" id="message" placeholder="Enter your message (at least 25 characters)" minlength="25" required></textarea>
+        <textarea name="message" id="message" placeholder="Enter your message (at least 25 characters)" minlength="25" required ></textarea>
+
     
         <button type="submit">Submit</button>
     </form>
 
-       <!-- Loop through each user and display their data -->
     <% if (data.length > 0) { %>
         <% data.forEach((user) => { %>
             <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
                 <p><strong>Name:</strong> <%= user.name %></p>
                 <p><strong>Date:</strong> <%= user.createdAt.toLocaleString() %></p>
                 <p><strong>Message:</strong> <%= user.message %></p>
+                <a href="c"> readmore</a>
             </div>
         <% }) %>
     <% } else { %>
