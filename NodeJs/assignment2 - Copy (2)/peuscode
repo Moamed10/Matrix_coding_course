@@ -1,5 +1,6 @@
 1 intsll mongoose libary
 2 connect it 
+3 store the data you already have with mongoose 
 4 use the data now from mongoose 
 5 start creating input and button
 6 make function for post and connect it with front end

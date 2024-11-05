@@ -23,10 +23,4 @@ const displayPosts = async (req, res) => {
     res.render('doc', { data: users });
 };
 
-const displaysingelPosts = async (req, res) => {
-    const id = req.param.id
-    const users =User.findById(id);
-    res.render('post', { data: users });
-};
-
-module.exports = { displayPosts , displaysingelPosts };
+module.exports = { displayPosts };
