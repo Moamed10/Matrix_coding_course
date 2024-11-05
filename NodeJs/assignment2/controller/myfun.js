@@ -1,4 +1,3 @@
-
 const User = require('../model/user');
 // creating new user and store it
 const newuser = async(req,res)=>{
@@ -12,11 +11,13 @@ const newuser = async(req,res)=>{
      await newUser.save();
     res.redirect("/users"); 
 }
+
 // display posts
 const displayPosts = async (req, res) => {
     const users = await User.find().sort({ createdAt: -1 });
     res.render('doc', { data: users });
 };
+
 // display singel poost by click the readmore
 const displaysingelPosts = async (req, res) => {
     const id = req.params.userId; 

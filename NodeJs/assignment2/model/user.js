@@ -24,6 +24,10 @@ userSchema.virtual('formattedCreatedAt').get(function () {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+
+
+
+
 const deleteAllUsers = async () => {
     try {
         await User.deleteMany({});
