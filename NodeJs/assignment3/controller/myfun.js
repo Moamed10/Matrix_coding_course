@@ -59,17 +59,6 @@ const displaysingelPosts = async (req, res) => {
     res.render('post', { data: user });
 };
 
-// const deletcomment = async(req,res)=>{
-//     const postid = req.params.userId; 
-//     const commentId = req.params.commentId; 
-//     console.log(commentId)
-//     const comment = await Comment.findByIdAndDelete(commentId);
-//     const user = await User.findById(postid);
-
-//     console.log(user)
-//     res.redirect("/users")
-// }
-
 
 const deletcomment = async (req, res) => {
     const postid = req.params.userId; 
