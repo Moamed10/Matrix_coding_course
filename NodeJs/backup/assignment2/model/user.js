@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const moment =require('moment/moment')
-const Schema = mongoose.Schema
-
+ 
 // const time = () => moment().format("YYYY-MM-DD")
 // console.log(time())
 const userSchema = new mongoose.Schema({
@@ -9,11 +8,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Comments :[{
-        type : Schema.Types.ObjectId,
-        ref : "Comment",
-
-    }],
     createdAt: {
         type: Date,
         default: Date.now

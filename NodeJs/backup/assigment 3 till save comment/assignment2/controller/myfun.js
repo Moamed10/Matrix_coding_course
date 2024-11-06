@@ -15,33 +15,34 @@ const newuser = async(req,res)=>{
 
 const addcomment = (req, res) => {
     let postid = req.params.userId
-    if (req.body.body && postid) {
+    if (req.body.body !== 0 && postid) {
         const commentdata = {
-            comment: req.body.body, 
-            post: postid
+            ...req.body,
+            post:postid
         }
         console.log(req.body); 
+
         const newcomment = new Comment(commentdata);
         newcomment.save()
             .then(data => {
                 User.findById(postid)
-                .then(UserInfo => {
+                .then(UserInfo =>{
                     UserInfo.Comments.push(newcomment._id)
                     UserInfo.save()  
-                    .then(result => {
+                    .then(result=>{
                         res.redirect("/users");
+    
                     })
+
                 })
+              
+
             })
             .catch(err => {
                 console.error("Error saving comment:", err);
                 res.redirect("/users");
             });
-    } else {
-        // Handle the case when the comment body is empty
-        res.redirect("/users");
     }
-    
 };
 
 
@@ -49,7 +50,7 @@ const addcomment = (req, res) => {
 
 // display posts
 const displayPosts = async (req, res) => {
-    const users = await User.find().sort({ createdAt: -1 }).populate("Comments", "comment");
+    const users = await User.find().sort({ createdAt: -1 });
     res.render('doc', { data: users });
 };
 // display singel poost by click the readmore
@@ -58,43 +59,6 @@ const displaysingelPosts = async (req, res) => {
     const user = await User.findById(id);
     res.render('post', { data: user });
 };
-
-// const deletcomment = async(req,res)=>{
-//     const postid = req.params.userId; 
-//     const commentId = req.params.commentId; 
-//     console.log(commentId)
-//     const comment = await Comment.findByIdAndDelete(commentId);
-//     const user = await User.findById(postid);
-
-//     console.log(user)
-//     res.redirect("/users")
-// }
-
-
-const deletcomment = async (req, res) => {
-    const postid = req.params.userId; 
-    const commentId = req.params.commentId; 
-
-    try {
-        await Comment.findByIdAndDelete(commentId);
-
-        const user = await User.findById(postid);
-        await User.findByIdAndUpdate(postid, {
-            $pull: { Comments: commentId }
-        });
-
-        res.redirect("/users");
-    } catch (error) {
-        console.error("Error deleting comment:", error);
-        res.redirect("/users");
-    }
-};
-
-
-
-
-
-
 
 const deletpostbyclick = async(req,res)=>{
     const id = req.params.userId; 
@@ -112,6 +76,5 @@ module.exports = {
     newuser, 
     deletpostbyclick,
     addcomment,
-    deletcomment
 
  };

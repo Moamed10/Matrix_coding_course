@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
-app.use(express.json());
+
 mongoose.connection.once('open', () => {
     console.log("Database connected successfully!");
     app.listen(port, () => console.log(`App is running on port ${port}`));

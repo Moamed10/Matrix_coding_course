@@ -7,7 +7,7 @@ router.get('/users',myfunction.displayPosts)
 router.get("/post/:userId", myfunction.displaysingelPosts);
 
 router.post("/postdelet/:userId",myfunction.deletpostbyclick)
-router.post('/post/delet/comment/:commentId/:userId', myfunction.deletcomment);
+
 // comment routs
 router.post('/post/add/new-comment/:userId',myfunction.addcomment)
 module.exports = router;
