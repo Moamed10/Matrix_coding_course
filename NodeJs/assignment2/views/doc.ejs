@@ -27,6 +27,12 @@
                 <p><strong>Date:</strong> <%= user.createdAt.toLocaleString() %></p>
                 <p><strong>Message:</strong> <%= user.message %></p>
                 <a href="/post/<%= user.id %>">Read more</a>
+                
+                <form action="/postdelet/<%= user.id %>" method="post" style="display:inline;">
+                    <button type="submit">Delete Post</button>
+                </form>
+                
+
             </div>
         <% }) %>
     <% } else { %>

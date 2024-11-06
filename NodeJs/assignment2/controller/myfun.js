@@ -25,4 +25,20 @@ const displaysingelPosts = async (req, res) => {
     res.render('post', { data: user });
 };
 
-module.exports = { displayPosts , displaysingelPosts,newuser };
+
+const deletpostbyclick = async(req,res)=>{
+    const id = req.params.userId; 
+    const user = await User.findByIdAndDelete(id);
+    res.redirect("/users")
+}
+
+
+
+
+
+module.exports = {
+    displayPosts , 
+    displaysingelPosts, 
+    newuser, 
+    deletpostbyclick,
+ };
