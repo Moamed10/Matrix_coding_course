@@ -12,7 +12,7 @@ const newuser = async(req,res)=>{
      await newUser.save();
     res.redirect("/users"); 
 }
-
+// add comment 
 const addcomment = (req, res) => {
     let postid = req.params.userId
     if (req.body.body && postid) {
@@ -44,9 +44,6 @@ const addcomment = (req, res) => {
     
 };
 
-
-
-
 // display posts
 const displayPosts = async (req, res) => {
     const users = await User.find().sort({ createdAt: -1 }).populate("Comments", "comment");
@@ -59,7 +56,7 @@ const displaysingelPosts = async (req, res) => {
     res.render('post', { data: user });
 };
 
-
+// delet comment
 const deletcomment = async (req, res) => {
     const postid = req.params.userId; 
     const commentId = req.params.commentId; 
@@ -79,19 +76,24 @@ const deletcomment = async (req, res) => {
     }
 };
 
-
-
-
-
-
-
+// 
 const deletpostbyclick = async(req,res)=>{
-    const id = req.params.userId; 
-    const user = await User.findByIdAndDelete(id);
-    res.redirect("/users")
+    const postId = req.params.userId;
+
+    try {
+        const post = await User.findById(postId);
+        
+        if (post && post.Comments && post.Comments.length > 0) {
+            await Comment.deleteMany({ _id: { $in: post.Comments } });
+        }
+        await User.findByIdAndDelete(postId);
+
+        res.redirect("/users");
+    } catch (error) {
+        console.error("Error deleting post and associated comments:", error);
+        res.redirect("/users");
+    }
 }
-
-
 
 
 
