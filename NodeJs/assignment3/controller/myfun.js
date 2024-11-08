@@ -56,7 +56,7 @@ const displaysingelPosts = async (req, res) => {
     res.render('post', { data: user });
 };
 
-// delet comment
+// delete comment
 const deletcomment = async (req, res) => {
     const postid = req.params.userId; 
     const commentId = req.params.commentId; 
@@ -76,7 +76,7 @@ const deletcomment = async (req, res) => {
     }
 };
 
-// 
+// delete post
 const deletpostbyclick = async(req,res)=>{
     const postId = req.params.userId;
 
@@ -96,7 +96,7 @@ const deletpostbyclick = async(req,res)=>{
 }
 
 
-
+// exporting the function
 module.exports = {
     displayPosts , 
     displaysingelPosts, 

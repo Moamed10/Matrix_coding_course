@@ -2,7 +2,9 @@ const express = require("express");
 const mongoose = require("./config/mongoose"); 
 const routes = require('./config/routes'); 
 const app = express();
-const port = 5000;
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+
 
 app.set('view engine', 'ejs');
 
@@ -14,7 +16,7 @@ app.use(routes);
 app.use(express.json());
 mongoose.connection.once('open', () => {
     console.log("Database connected successfully!");
-    app.listen(port, () => console.log(`App is running on port ${port}`));
+    app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
 });
 
 mongoose.connection.on('error', (error) => {
