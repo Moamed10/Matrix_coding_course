@@ -1,6 +1,5 @@
 const User = require('../model/user');
 const Comment = require("../model/comment")
-
 // creating new user and store it
 const newuser = async(req,res)=>{
     const newUser = new User(); 

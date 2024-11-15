@@ -1,0 +1,184 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Logout Button */
+.logout-container {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.logout-container form button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-container form button:hover {
+    background-color: #d32f2f;
+}
+
+/* Timeline Header */
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form for creating a new post */
+.posts-container form {
+    margin-bottom: 30px;
+}
+
+.posts-container form label {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.posts-container form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 1em;
+    min-height: 100px;
+}
+
+.posts-container form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.posts-container form button:hover {
+    background-color: #45a049;
+}
+
+/* Post Styling */
+.post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-item p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.post-item h3 {
+    font-size: 1.3em;
+    color: #4CAF50;
+}
+
+.post-item .delete-post-form button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.post-item .delete-post-form button:hover {
+    background-color: #d32f2f;
+}
+
+.post-item .comment-container {
+    margin-top: 20px;
+}
+
+.post-item .comment-container .comment-section {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.post-item .comment-container .comment-section h3 {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.post-item .comment-container form input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+.post-item .comment-container form button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.post-item .comment-container form button:hover {
+    background-color: #45a049;
+}
+
+/* Styling for individual comment items */
+.comment-section {
+    margin-bottom: 15px;
+}
+
+.comment-section form button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.comment-section form button:hover {
+    background-color: #d32f2f;
+}
+
+.comment-container p {
+    font-size: 1.1em;
+    color: #888;
+}
+
+/* If no posts or comments available */
+.no-posts {
+    font-size: 1.2em;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .posts-container form textarea,
+    .posts-container form button,
+    .comment-container form input,
+    .comment-container form button {
+        width: 100%;
+    }
+}

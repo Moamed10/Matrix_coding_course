@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Details</title>
+</head>
+<body>
+    <h1><%= feedbyid.name %></h1> <!-- Display the feed's name -->
+    <p><%= feedbyid.message %></p> <!-- Display the feed's message -->
+    <p><%= feedbyid.createdAt.toISOString().split('T')[0] %></p> <!-- Display the creation date -->
+
+    <form action="/feed/delete/<%= feedbyid._id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+    </form>
+    <a href="/feed/edit/<%= feedbyid._id %>">edit </a>
+    <br>
+
+    <a href="/feed">Back to Feed List</a>
+</body>
+</html>

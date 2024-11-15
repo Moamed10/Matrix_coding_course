@@ -1,11 +1,7 @@
 const express = require("express");
 const mongoose = require("./config/mongoose"); 
-const routes = require('./config/routes');
-var cookieParser = require('cookie-parser')
-
+const routes = require('./config/routes'); 
 const app = express();
-app.use(cookieParser())
-
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
@@ -13,11 +9,11 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
-app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
+app.use(express.json());
 mongoose.connection.once('open', () => {
     console.log("Database connected successfully!");
     app.listen(PORT, () => console.log(`App is running on port ${PORT}`));

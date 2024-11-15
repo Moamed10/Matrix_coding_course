@@ -34,4 +34,13 @@ module.exports = User;
 
 
 
+// const deleteAllUsers = async () => {
+//     try {
+//         await User.deleteMany({});
+//         console.log("All users deleted successfully.");
+//     } catch (error) {
+//         console.error("Error deleting users:", error);
+//     }
+// };
 
+// deleteAllUsers();

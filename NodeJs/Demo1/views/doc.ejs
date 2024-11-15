@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>The New York-Timelines</h1>
+    <a href="/creat-article" style="color: blue; text-decoration: none;">Add Post</a>
+
+    <% if (newArticle.length > 0) { %>
+        <div>
+            <% newArticle.forEach((article) => { %>
+                <div class="article">
+                    <h2><%= article.title %></h2>
+                    <p><%= article.article %></p>
+    
+                    <form action="/delet-article" method="post">
+                        <input type="hidden" name="articleId" value="<%= article._id %>">
+                        <button type="submit">Delete Article</button>
+                    </form>
+                    <form action="/display-edit-article" method="post">
+                        <input type="hidden" name="articleId" value="<%= article._id %>">
+                        <button type="submit">edit Article</button>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No articles available.</p>
+    <% } %>
+    
+</body>
+</html>
