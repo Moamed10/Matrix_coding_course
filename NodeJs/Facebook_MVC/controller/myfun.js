@@ -25,12 +25,12 @@ const creatfeed = async (req, res) => {
 
 const singlefeed = async (req, res) => {
     try {
-        const feedid = req.params.id;  // Accessing the feed ID from URL params
-        const feed = await Feed.findById(feedid);  // Await the result since it's async
+        const feedid = req.params.id;  
+        const feed = await Feed.findById(feedid); 
         if (!feed) {
             return res.send("Feed not found");
         }
-        res.render("singlefeed", { feedbyid :feed });  // Assuming you want to render the feed details on a page
+        res.render("singlefeed", { feedbyid :feed }); 
     } catch (err) {
         console.error(err);
         res.send("Server Error");
@@ -39,8 +39,8 @@ const singlefeed = async (req, res) => {
 
 const deletfeed = async (req, res) => {
     try {
-        const feedid = req.params.id;  // Get the feed ID from the URL parameter
-        const feed = await Feed.findByIdAndDelete(feedid);  // Delete the feed by its ID
+        const feedid = req.params.id;  
+        const feed = await Feed.findByIdAndDelete(feedid); 
         if (!feed) {
             return res.send("Feed not found");
         }
@@ -51,17 +51,16 @@ const deletfeed = async (req, res) => {
     }
 };
 
-// Route handler for showing the edit feed page
 const showedit = async (req, res) => {
     try {
-        const feedid = req.params.id;  // Get the feed ID from the URL parameter
-        const feed = await Feed.findById(feedid);  // Find the feed by ID
+        const feedid = req.params.id;  
+        const feed = await Feed.findById(feedid);  
         
         if (!feed) {
             return res.send("Feed not found");
         }
         
-        // Render the edit feed page and pass the feed data to the EJS template
+     
         res.render("editfeed", { feed: feed });  
     } catch (err) {
         console.error(err);
@@ -71,8 +70,8 @@ const showedit = async (req, res) => {
 
 const updatefeed = async (req, res) => {
     try {
-        const feedid = req.params.id;  // Get the feed ID from the URL parameter
-        const { name, message } = req.body;  // Get the updated name and message from the form
+        const feedid = req.params.id; 
+        const { name, message } = req.body;  
         
         const feed = await Feed.findByIdAndUpdate(feedid, { name, message },);
         

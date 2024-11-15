@@ -5,9 +5,9 @@
     <title>Feed Details</title>
 </head>
 <body>
-    <h1><%= feedbyid.name %></h1> <!-- Display the feed's name -->
-    <p><%= feedbyid.message %></p> <!-- Display the feed's message -->
-    <p><%= feedbyid.createdAt.toISOString().split('T')[0] %></p> <!-- Display the creation date -->
+    <h1><%= feedbyid.name %></h1> 
+    <p><%= feedbyid.message %></p> 
+    <p><%= feedbyid.createdAt.toISOString().split('T')[0] %></p>
 
     <form action="/feed/delete/<%= feedbyid._id %>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
