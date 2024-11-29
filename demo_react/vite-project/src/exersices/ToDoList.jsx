@@ -56,31 +56,27 @@ const ToDoList = () => {
           add task
         </button>
       </div>
-      {tasks.length == 0 ? (
-        <p> no tasks </p>
-      ) : (
-        <ol>
-          {tasks.map((task, index) => (
-            <li key={index}>
-              <span className="task">{task}</span>
-              <button
-                className="delet-button"
-                onClick={() => handelRemove(index)}
-              >
-                delet
-              </button>
+      <ol>
+        {tasks.map((task, index) => (
+          <li key={index}>
+            <span className="task">{task}</span>
+            <button
+              className="delet-button"
+              onClick={() => handelRemove(index)}
+            >
+              delet
+            </button>
 
-              <button className="move-button" onClick={() => moveUp(index)}>
-                ☝️
-              </button>
+            <button className="move-button" onClick={() => moveUp(index)}>
+              ☝️
+            </button>
 
-              <button className="move-button" onClick={() => moveDown(index)}>
-                👎
-              </button>
-            </li>
-          ))}
-        </ol>
-      )}
+            <button className="move-button" onClick={() => moveDown(index)}>
+              👎
+            </button>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };

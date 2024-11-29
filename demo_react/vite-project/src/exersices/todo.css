@@ -1,0 +1,100 @@
+/* ToDoList.css */
+
+.to-do-list {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.to-do-list h1 {
+  text-align: center;
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.to-do-list input {
+  width: calc(100% - 90px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.to-do-list .add-butoon {
+  padding: 8px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.to-do-list .add-butoon:hover {
+  background-color: #0056b3;
+}
+
+.to-do-list ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.to-do-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.to-do-list li:last-child {
+  border-bottom: none;
+}
+
+.to-do-list .task {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.to-do-list .delet-button,
+.to-do-list .move-button {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.to-do-list .delet-button {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.to-do-list .delet-button:hover {
+  background-color: #cc0000;
+}
+
+.to-do-list .move-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.to-do-list .move-button:hover {
+  background-color: #b3b3b3;
+}
+
+.to-do-list .move-button:active {
+  transform: translateY(2px);
+}
