@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ToDoList = () => {
-  const [tasks, setTasks] = useState(["gym", "study", "reading"]);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   function handelInput(event) {
@@ -56,27 +56,31 @@ const ToDoList = () => {
           add task
         </button>
       </div>
-      <ol>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            <span className="task">{task}</span>
-            <button
-              className="delet-button"
-              onClick={() => handelRemove(index)}
-            >
-              delet
-            </button>
+      {tasks.length == 0 ? (
+        <p> no tasks </p>
+      ) : (
+        <ol>
+          {tasks.map((task, index) => (
+            <li key={index}>
+              <span className="task">{task}</span>
+              <button
+                className="delet-button"
+                onClick={() => handelRemove(index)}
+              >
+                delet
+              </button>
 
-            <button className="move-button" onClick={() => moveUp(index)}>
-              ☝️
-            </button>
+              <button className="move-button" onClick={() => moveUp(index)}>
+                ☝️
+              </button>
 
-            <button className="move-button" onClick={() => moveDown(index)}>
-              👎
-            </button>
-          </li>
-        ))}
-      </ol>
+              <button className="move-button" onClick={() => moveDown(index)}>
+                👎
+              </button>
+            </li>
+          ))}
+        </ol>
+      )}
     </div>
   );
 };
