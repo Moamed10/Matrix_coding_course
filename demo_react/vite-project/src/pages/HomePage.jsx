@@ -20,7 +20,9 @@ const HomePage = () => {
       <h1>HomePage</h1>
       <ul>
         {users.length > 0 ? (
-          users.map((user) => <li key={user.email}> {user.email}</li>)
+          users.map((user) => <li key={user.id}> {user.email} <Link to={}>
+          
+          </Link></li>)
         ) : (
           <li>Loading users...</li> // Display while data is being fetched
         )}

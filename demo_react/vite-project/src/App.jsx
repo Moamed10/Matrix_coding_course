@@ -1,12 +1,12 @@
 import React from "react";
-import QuoteGenerator from "./pages/QuoteGenerator";
+import Login from "./Login";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Quotes Generator</h1>
-      <QuoteGenerator />
+      <h1></h1>
+      <Login />
     </div>
   );
 }
