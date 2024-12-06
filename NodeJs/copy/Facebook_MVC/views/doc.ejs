@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed List</title>
+</head>
+<body>
+    <div class="add-">
+        <h1 >welcome to facebook</h1>
+
+        <body>
+            <h1>Create New Feed</h1>
+            <form action="/creat-feed" method="POST">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" maxlength="15" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" maxlength="40" required></textarea>
+                </div>
+                <button type="submit">Create Post</button>
+            </form>
+        </body>
+    </div>
+    <br> <br>
+    <% if (newfeed.length > 0) { %>
+        <% newfeed.forEach(feed => { %>
+            <h1><%= feed.name %></h1>
+            <p><%= feed.message %></p>
+            <p><%= feed.createdAt ? new Date(feed.createdAt).toLocaleDateString('en-GB') : 'No date available' %></p>
+            <a href="/feed/<%= feed._id %>">see more</a>
+         
+            <br><br>
+        <% }) %>
+    <% } else { %>
+        <p>No messages found.</p>
+    <% } %>
+    
+    
+    
+    
+</body>
+</html>

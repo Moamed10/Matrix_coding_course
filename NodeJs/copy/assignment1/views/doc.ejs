@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Posts</title>
+    <link href="style.css" rel="stylesheet" type="text/css"> 
+
+</head>
+<body style="border: 5cap;">
+    <h1>Timeline</h1>
+    <form action="/user/search" method="post"> 
+        <p style="background-color: aqua;"> search post by name </p>
+        <input type="text" name="name" placeholder="Enter name to search" id="input1">
+        <button type="submit">Submit</button>
+    </form>
+   
+
+    <% data.forEach((user) => { %>
+        <p style="color: #FC7D7D;"><strong><%= user.name %></strong> - <%= user.createdAt %></p>
+        <p><%= user.message %></p>
+        <br>
+    <% }) %>
+</body>
+</html>

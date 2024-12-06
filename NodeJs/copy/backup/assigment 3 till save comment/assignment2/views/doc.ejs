@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Posts</title>
+    <link href="style.css" rel="stylesheet" type="text/css"> 
+
+</head>
+<body style="border: 5cap;">
+    <h1>Timeline</h1>
+    <form action="/users" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name" required>
+    
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" placeholder="Enter your message (at least 25 characters)" minlength="25" required ></textarea>
+
+    
+        <button type="submit">Submit</button>
+    </form>
+
+    <% if (data.length > 0) { %>
+        <% data.forEach((user) => { %>
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                <p><strong>Name:</strong> <%= user.name %></p>
+                <p><strong>Date:</strong> <%= user.createdAt.toLocaleString() %></p>
+                <p><strong>Message:</strong> <%= user.message %></p>
+                <a href="/post/<%= user.id %>">Read more</a>
+                <form action="/postdelet/<%= user.id %>" method="post" style="display:inline;">
+                    <button type="submit">Delete Post</button>
+                </form>
+                <div class="commecnts-form">
+                    <form action="/post/add/new-comment/<%= user.id %>" method="post">
+                        <input type="text" placeholder="comment" autocomplete="off" name="body" >
+                        <button>Add comment</button>
+                    </form>
+                </div>
+
+                
+
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No posts available.</p>
+    <% } %>
+</body>
+</html>
