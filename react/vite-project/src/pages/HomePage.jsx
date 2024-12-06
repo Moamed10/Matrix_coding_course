@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./HomePage.css"; // Import the CSS file
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -31,27 +32,41 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Product List</h1>
-      <Link to={"/products/new"}>Add New Product</Link>
+      <Link to={"/products/new"} className="add-product-link">
+        Add New Product
+      </Link>
 
       {products.length === 0 ? (
         <p>No products available.</p>
       ) : (
-        products.map((product) => (
-          <div key={product.id}>
-            <h2>Product Name: {product.title}</h2>
-            <p>Description: {product.description}</p>
-            <p>Price: ${product.price}</p>
-            <div>
-              <Link to={`/products/show/${product.id}`}>View</Link>
-              <br />
-              <Link to={`/products/edit/${product.id}`}>Edit</Link>
-              <br></br>
-              <button onClick={() => deleteProduct(product.id)}>Delete</button>
-            </div>
-          </div>
-        ))
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.id}>
+                <td>{product.title}</td>
+                <td>{product.description}</td>
+                <td>${product.price}</td>
+                <td className="actions">
+                  <Link to={`/products/show/${product.id}`}>View</Link>
+                  <Link to={`/products/edit/${product.id}`}>Edit</Link>
+                  <button onClick={() => deleteProduct(product.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );
