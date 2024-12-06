@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./HomePage.css"; // Import the CSS file
+import "./HomePage.css";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
